@@ -8,7 +8,7 @@ export function ExperienceSection() {
   const { internship } = EXPERIENCE
 
   return (
-    <section id="experience" className="py-8 md:py-10 lg:py-12 bg-white dark:bg-slate-900">
+    <section id="experience" className="py-8 md:py-10 lg:py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export function ExperienceSection() {
               </div>
             </div>
           </div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-2xl mx-auto font-medium px-4">
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-medium px-4">
             Professional experience building real-world applications
           </p>
         </motion.div>
@@ -48,15 +48,15 @@ export function ExperienceSection() {
             boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
             transition: { duration: 0.2 }
           }}
-          className="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 border-2 border-black dark:border-gray-600 shadow-lg"
+          className="bg-white rounded-2xl p-6 md:p-8 border-2 border-black shadow-lg"
         >
           {/* Company Header */}
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
             <div>
-              <h3 className="text-2xl md:text-3xl font-black text-black dark:text-white mb-2">
+              <h3 className="text-2xl md:text-3xl font-black text-black mb-2">
                 {internship.role}
               </h3>
-              <div className="flex flex-wrap items-center gap-3 text-gray-700 dark:text-gray-300">
+              <div className="flex flex-wrap items-center gap-3 text-gray-700">
                 <a
                   href={internship.website}
                   target="_blank"
@@ -70,11 +70,11 @@ export function ExperienceSection() {
             </div>
             
             <div className="flex flex-col gap-2 text-sm md:text-base">
-              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2 text-gray-600">
                 <Calendar className="w-4 h-4 flex-shrink-0" />
                 <span className="font-medium">{internship.period}</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2 text-gray-600">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
                 <span className="font-medium">{internship.location}</span>
               </div>
@@ -83,7 +83,7 @@ export function ExperienceSection() {
 
           {/* Responsibilities */}
           <div className="space-y-3">
-            <h4 className="text-lg md:text-xl font-black text-black dark:text-white mb-4">
+            <h4 className="text-lg md:text-xl font-black text-black mb-4">
               Key Responsibilities & Achievements
             </h4>
             <ul className="space-y-3">
@@ -94,7 +94,7 @@ export function ExperienceSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                  className="flex items-start gap-3 text-gray-700"
                 >
                   <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0 border border-black"></div>
                   <span className="font-medium text-sm md:text-base">{responsibility}</span>
@@ -104,8 +104,8 @@ export function ExperienceSection() {
           </div>
 
           {/* Tech Stack */}
-          <div className="mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
-            <h4 className="text-base md:text-lg font-black text-black dark:text-white mb-3">
+          <div className="mt-6 pt-6 border-t-2 border-gray-200">
+            <h4 className="text-base md:text-lg font-black text-black mb-3">
               Technologies Used
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -124,3 +124,4 @@ export function ExperienceSection() {
     </section>
   )
 }
+

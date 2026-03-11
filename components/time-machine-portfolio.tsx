@@ -141,7 +141,7 @@ export function TimeMachinePortfolio() {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Timeline Navigation */}
       <div className="flex items-center justify-center mb-8 md:mb-12">
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 shadow-lg border-2 border-black dark:border-gray-600">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-white rounded-2xl p-3 sm:p-4 shadow-lg border-2 border-black">
           {timelineData.map((node, index) => (
             <div key={index} className="flex items-center">
               <button
@@ -149,14 +149,14 @@ export function TimeMachinePortfolio() {
                 className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all font-bold text-xs sm:text-sm md:text-base ${
                   currentYear === index
                     ? "bg-yellow-400 text-black border-2 border-black"
-                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border-2 border-transparent"
+                    : "text-gray-600 hover:bg-gray-100 border-2 border-transparent"
                 }`}
               >
                 <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="font-bold">{node.year}</span>
               </button>
               {index < timelineData.length - 1 && (
-                <div className="hidden sm:block w-4 md:w-8 h-px bg-gray-300 dark:bg-gray-600 mx-1 md:mx-2" />
+                <div className="hidden sm:block w-4 md:w-8 h-px bg-gray-300 mx-1 md:mx-2" />
               )}
             </div>
           ))}
@@ -171,7 +171,7 @@ export function TimeMachinePortfolio() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5 }}
-          className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 md:p-8 border-2 border-black dark:border-gray-600 shadow-md"
+          className="bg-white rounded-lg p-4 sm:p-6 md:p-8 border-2 border-black shadow-md"
         >
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
@@ -180,10 +180,10 @@ export function TimeMachinePortfolio() {
                 {currentData.icon}
               </div>
               <div className="flex-1">
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-white">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
                   {currentData.year} - {currentData.phase}
                 </h2>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2 font-medium">
+                <p className="text-sm sm:text-base text-gray-600 mt-1 sm:mt-2 font-medium">
                   {currentData.description}
                 </p>
               </div>
@@ -193,13 +193,13 @@ export function TimeMachinePortfolio() {
               <button
                 onClick={() => navigateYear("prev")}
                 disabled={currentYear === 0}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-yellow-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors border-2 border-transparent hover:border-black"
+                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-yellow-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors border-2 border-transparent hover:border-black"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={() => navigateYear("next")}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-yellow-400 hover:text-black transition-colors border-2 border-transparent hover:border-black"
+                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-yellow-400 hover:text-black transition-colors border-2 border-transparent hover:border-black"
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -211,7 +211,7 @@ export function TimeMachinePortfolio() {
             {/* Skills & Mindset */}
             <div className="space-y-4 sm:space-y-6">
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-gray-900 dark:text-white mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3 sm:mb-4">
                   Skills Developed
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -227,21 +227,21 @@ export function TimeMachinePortfolio() {
               </div>
 
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-gray-900 dark:text-white mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3 sm:mb-4">
                   Mindset
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 italic font-medium">
+                <p className="text-sm sm:text-base text-gray-600 italic font-medium">
                   "{currentData.mindset}"
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-gray-900 dark:text-white mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3 sm:mb-4">
                   Key Achievements
                 </h3>
                 <ul className="space-y-2">
                   {currentData.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">
+                    <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-gray-600 font-medium">
                       <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0 border border-black" />
                       {achievement}
                     </li>

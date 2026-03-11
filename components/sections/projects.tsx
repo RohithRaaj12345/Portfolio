@@ -6,7 +6,7 @@ import { Code, ExternalLink, Github, Smartphone } from "lucide-react"
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-8 md:py-10 lg:py-12 bg-gray-50 dark:bg-slate-800">
+    <section id="projects" className="py-8 md:py-10 lg:py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export function ProjectsSection() {
               </div>
             </div>
           </div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-2xl mx-auto font-medium px-4">
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-medium px-4">
             Real-world applications solving actual problems
           </p>
         </motion.div>
@@ -49,19 +49,19 @@ export function ProjectsSection() {
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                 transition: { duration: 0.2 }
               }}
-              className="bg-white dark:bg-slate-900 rounded-xl p-6 border-2 border-black dark:border-gray-600 shadow-md"
+              className="bg-white rounded-xl p-6 border-2 border-black shadow-md"
             >
               {/* Header */}
               <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-black text-black dark:text-white mb-2">
+                  <h3 className="text-xl md:text-2xl font-black text-black mb-2">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="px-2 py-1 bg-yellow-400 text-black text-xs font-bold rounded border border-black">
                       {project.type}
                     </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    <span className="text-xs text-gray-500 font-medium">
                       {project.period}
                     </span>
                   </div>
@@ -104,21 +104,21 @@ export function ProjectsSection() {
               </div>
 
               {/* Description */}
-              <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-4 font-medium">
+              <p className="text-sm md:text-base text-gray-700 mb-4 font-medium">
                 {project.description}
               </p>
 
               {/* Impact */}
               <div className="mb-4 p-3 bg-yellow-400/10 rounded-lg border border-yellow-400/30">
-                <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                  <span className="font-black text-black dark:text-white">💡 </span>
+                <p className="text-sm text-gray-700 font-medium">
+                  <span className="font-black text-black">💡 </span>
                   {project.problem}
                 </p>
               </div>
 
               {/* Architecture */}
-              <div className="mb-4 p-3 bg-gray-50 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-mono">
+              <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <p className="text-xs md:text-sm text-gray-600 font-mono">
                   {project.architecture}
                 </p>
               </div>
@@ -128,7 +128,7 @@ export function ProjectsSection() {
                 {project.tech.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 bg-white dark:bg-slate-700 text-black dark:text-gray-200 rounded-full text-xs font-bold border border-gray-300 dark:border-gray-600"
+                    className="px-3 py-1 bg-white text-black rounded-full text-xs font-bold border border-gray-300"
                   >
                     {tech}
                   </span>
@@ -141,3 +141,4 @@ export function ProjectsSection() {
     </section>
   )
 }
+

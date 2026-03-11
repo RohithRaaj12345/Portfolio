@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-8 md:py-10 lg:py-12 bg-gray-50 dark:bg-slate-800">
+    <section id="contact" className="py-8 md:py-10 lg:py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export function ContactSection() {
               </div>
             </div>
           </div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-2xl mx-auto font-medium px-4">
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-medium px-4">
             Let's build something amazing together
           </p>
         </motion.div>
@@ -46,15 +46,15 @@ export function ContactSection() {
               boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
               transition: { duration: 0.2 }
             }}
-            className="block bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 border-2 border-black dark:border-gray-600 shadow-md group"
+            className="block bg-white rounded-xl p-5 md:p-6 border-2 border-black shadow-md group"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-yellow-400 rounded-lg flex items-center justify-center border-2 border-black flex-shrink-0 group-hover:scale-110 transition-transform">
                 <Mail className="w-6 h-6 md:w-7 md:h-7 text-black" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-black dark:text-white font-black text-base md:text-lg mb-1">Email</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium truncate">{SITE_CONFIG.links.email}</p>
+                <p className="text-black font-black text-base md:text-lg mb-1">Email</p>
+                <p className="text-gray-600 text-sm md:text-base font-medium truncate">{SITE_CONFIG.links.email}</p>
               </div>
             </div>
           </motion.a>
@@ -74,15 +74,15 @@ export function ContactSection() {
               boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
               transition: { duration: 0.2 }
             }}
-            className="block bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 border-2 border-black dark:border-gray-600 shadow-md group"
+            className="block bg-white rounded-xl p-5 md:p-6 border-2 border-black shadow-md group"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-yellow-400 rounded-lg flex items-center justify-center border-2 border-black flex-shrink-0 group-hover:scale-110 transition-transform">
                 <Linkedin className="w-6 h-6 md:w-7 md:h-7 text-black" />
               </div>
               <div className="flex-1">
-                <p className="text-black dark:text-white font-black text-base md:text-lg mb-1">LinkedIn</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium">Connect with me professionally</p>
+                <p className="text-black font-black text-base md:text-lg mb-1">LinkedIn</p>
+                <p className="text-gray-600 text-sm md:text-base font-medium">Connect with me professionally</p>
               </div>
             </div>
           </motion.a>
@@ -102,15 +102,15 @@ export function ContactSection() {
               boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
               transition: { duration: 0.2 }
             }}
-            className="block bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 border-2 border-black dark:border-gray-600 shadow-md group"
+            className="block bg-white rounded-xl p-5 md:p-6 border-2 border-black shadow-md group"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-black rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                 <Github className="w-6 h-6 md:w-7 md:h-7 text-yellow-400" />
               </div>
               <div className="flex-1">
-                <p className="text-black dark:text-white font-black text-base md:text-lg mb-1">GitHub</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium">Check out my code</p>
+                <p className="text-black font-black text-base md:text-lg mb-1">GitHub</p>
+                <p className="text-gray-600 text-sm md:text-base font-medium">Check out my code</p>
               </div>
             </div>
           </motion.a>
@@ -126,15 +126,15 @@ export function ContactSection() {
               y: -3,
               transition: { duration: 0.2 }
             }}
-            className="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 border-2 border-black dark:border-gray-600 shadow-md"
+            className="bg-white rounded-xl p-5 md:p-6 border-2 border-black shadow-md"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-yellow-400 rounded-lg flex items-center justify-center border-2 border-black flex-shrink-0">
                 <Phone className="w-6 h-6 md:w-7 md:h-7 text-black" />
               </div>
               <div className="flex-1">
-                <p className="text-black dark:text-white font-black text-base md:text-lg mb-1">Phone</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium">{SITE_CONFIG.links.phone}</p>
+                <p className="text-black font-black text-base md:text-lg mb-1">Phone</p>
+                <p className="text-gray-600 text-sm md:text-base font-medium">{SITE_CONFIG.links.phone}</p>
               </div>
             </div>
           </motion.div>
@@ -150,15 +150,15 @@ export function ContactSection() {
               y: -3,
               transition: { duration: 0.2 }
             }}
-            className="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 border-2 border-black dark:border-gray-600 shadow-md"
+            className="bg-white rounded-xl p-5 md:p-6 border-2 border-black shadow-md"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-yellow-400 rounded-lg flex items-center justify-center border-2 border-black flex-shrink-0">
                 <MapPin className="w-6 h-6 md:w-7 md:h-7 text-black" />
               </div>
               <div className="flex-1">
-                <p className="text-black dark:text-white font-black text-base md:text-lg mb-1">Location</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base font-medium">{SITE_CONFIG.links.location}</p>
+                <p className="text-black font-black text-base md:text-lg mb-1">Location</p>
+                <p className="text-gray-600 text-sm md:text-base font-medium">{SITE_CONFIG.links.location}</p>
               </div>
             </div>
           </motion.div>
@@ -185,3 +185,4 @@ export function ContactSection() {
     </section>
   )
 }
+

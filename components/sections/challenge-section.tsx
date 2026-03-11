@@ -6,7 +6,7 @@ import { Clock } from "lucide-react"
 
 export function ChallengeSection() {
   return (
-    <section id="challenge" className="pt-0 pb-8 md:pb-10 lg:pb-12 bg-white dark:bg-slate-900">
+    <section id="challenge" className="pt-0 pb-8 md:pb-10 lg:pb-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export function ChallengeSection() {
               </div>
             </div>
           </div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-3xl mx-auto font-medium px-4">
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto font-medium px-4">
             From foundation to full-stack — explore how I evolved through different phases of learning and building
           </p>
         </motion.div>
@@ -49,3 +49,4 @@ export function ChallengeSection() {
     </section>
   )
 }
+

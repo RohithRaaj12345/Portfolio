@@ -26,6 +26,7 @@ interface VelocityTracker {
 export function InteractiveHeroSection() {
   const [currentRole, setCurrentRole] = useState(0)
   const [carromMode, setCarromMode] = useState(false)
+  const [showHint, setShowHint] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const physicsObjects = useRef<PhysicsObject[]>([])
   const animationRef = useRef<number | undefined>(undefined)
@@ -588,6 +589,16 @@ export function InteractiveHeroSection() {
     }
   }, [])
 
+  // Auto-hide hint after 5 seconds on mobile
+  useEffect(() => {
+    if (showHint) {
+      const timer = setTimeout(() => {
+        setShowHint(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [showHint])
+
   const renderWords = (text: string, baseId: string) => {
     return text.split(' ').map((word, index) => (
       <span
@@ -610,28 +621,28 @@ export function InteractiveHeroSection() {
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-slate-900 py-4 md:py-6"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white"
     >
       {/* Simple clean background */}
-      <div className="absolute inset-0 bg-white dark:bg-slate-900" />
+      <div className="absolute inset-0 bg-white" />
 
       {/* Carrom Area */}
       <div 
         ref={containerRef}
-        className="relative z-10 flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 py-4 md:py-6"
+        className="relative z-10 flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-12"
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="w-full max-w-6xl bg-yellow-400 dark:bg-yellow-500 rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 lg:p-12 carrom-card relative">
+        <div className="w-full max-w-6xl bg-yellow-400 rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 carrom-card relative">
           {/* Interactive Mode Indicator */}
           {carromMode && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute top-3 left-3 md:top-4 md:left-4 bg-black text-yellow-400 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border-2 border-yellow-400 text-xs md:text-sm font-bold"
+              className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 bg-black text-yellow-400 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg border-2 border-yellow-400 text-xs md:text-sm font-bold"
             >
               🎮 Interactive Mode
             </motion.div>
@@ -659,7 +670,7 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-black mb-3 md:mb-5"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black mb-3 md:mb-5"
             >
               {renderWords('Rohith S', 'headline')}
             </motion.h1>
@@ -671,7 +682,7 @@ export function InteractiveHeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5 }}
-                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-black"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-black"
               >
                 {renderWords(ROLES[currentRole], 'role')}
               </motion.p>
@@ -681,7 +692,7 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm sm:text-base md:text-lg text-black dark:text-black max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed font-medium px-2"
+              className="text-sm sm:text-base md:text-lg text-black max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed font-medium px-2"
             >
               {renderWords('Computer Science Engineering student with expertise in Flutter and Android development. Experienced in building mobile applications, cloud integration with AWS, and full-stack web solutions. Passionate about creating technology that solves real-world problems.', 'description')}
             </motion.p>
@@ -727,33 +738,79 @@ export function InteractiveHeroSection() {
         </div>
       </div>
 
-      {/* Interactive Hint - Only show when carrom mode is not active */}
+      {/* Interactive Hint - Desktop: always visible, Mobile: slide from right */}
       {!carromMode && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute top-4 right-4 md:top-8 md:right-8 z-20"
-        >
-          <div className="bg-black text-yellow-400 px-4 py-3 md:px-5 md:py-3 rounded-xl border-2 border-yellow-400 shadow-lg">
-            <div className="flex items-center gap-2 mb-1">
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                </svg>
-              </motion.div>
-              <p className="text-xs md:text-sm font-bold">Try dragging!</p>
+        <>
+          {/* Desktop Hint - Hidden on mobile */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            className="hidden md:block absolute top-4 right-4 md:top-8 md:right-8 z-20"
+          >
+            <div className="bg-black text-yellow-400 px-4 py-3 md:px-5 md:py-3 rounded-xl border-2 border-yellow-400 shadow-lg">
+              <div className="flex items-center gap-2 mb-1">
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                  </svg>
+                </motion.div>
+                <p className="text-xs md:text-sm font-bold">Try dragging!</p>
+              </div>
+              <p className="text-xs text-yellow-400/80">Drag any text for fun!</p>
             </div>
-            <p className="text-xs text-yellow-400/80">Drag any text for fun!</p>
+          </motion.div>
+
+          {/* Mobile: Arrow button to show hint */}
+          <div className="md:hidden absolute top-1/2 right-0 -translate-y-1/2 z-20">
+            {!showHint ? (
+              <motion.button
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                onClick={() => setShowHint(true)}
+                className="bg-black text-yellow-400 p-3 rounded-l-xl border-2 border-r-0 border-yellow-400 shadow-lg"
+              >
+                <motion.div
+                  animate={{ x: [-3, 0, -3] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </motion.div>
+              </motion.button>
+            ) : (
+              <motion.div
+                initial={{ x: 300 }}
+                animate={{ x: 0 }}
+                exit={{ x: 300 }}
+                transition={{ type: "spring", damping: 20 }}
+                className="bg-black text-yellow-400 px-4 py-3 rounded-l-xl border-2 border-r-0 border-yellow-400 shadow-lg max-w-[200px]"
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                    </svg>
+                  </motion.div>
+                  <p className="text-xs font-bold">Try dragging!</p>
+                </div>
+                <p className="text-xs text-yellow-400/80">Drag any text for fun!</p>
+              </motion.div>
+            )}
           </div>
-        </motion.div>
+        </>
       )}
 
       {/* Buttons */}
-      <div className="relative z-10 w-full pb-8 md:pb-12 px-4 sm:px-6">
+      <div className="relative z-10 w-full pb-8 md:pb-10 lg:pb-12 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -787,3 +844,4 @@ export function InteractiveHeroSection() {
     </section>
   )
 }
+

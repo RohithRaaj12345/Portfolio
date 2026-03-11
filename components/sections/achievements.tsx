@@ -6,7 +6,7 @@ import { Trophy, Clock, Zap, Award } from "lucide-react"
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="py-8 md:py-10 lg:py-12 bg-gray-50 dark:bg-slate-800">
+    <section id="achievements" className="py-8 md:py-10 lg:py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export function AchievementsSection() {
               </div>
             </div>
           </div>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 max-w-2xl mx-auto font-medium px-4">
+          <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto font-medium px-4">
             Recognition and milestones that mark my journey
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ export function AchievementsSection() {
               boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
               transition: { duration: 0.2 }
             }}
-            className="bg-white dark:bg-slate-700 rounded-lg p-6 md:p-8 max-w-4xl mx-auto mb-6 md:mb-8 border-2 border-black dark:border-gray-600 shadow-md"
+            className="bg-white rounded-lg p-6 md:p-8 max-w-4xl mx-auto mb-6 md:mb-8 border-2 border-black shadow-md"
           >
             <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
               <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-yellow-400 rounded-lg flex items-center justify-center border-2 border-black">
@@ -58,32 +58,32 @@ export function AchievementsSection() {
               
               <div className="flex-1 w-full">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 md:mb-4 gap-3 md:gap-4">
-                  <h3 className="text-xl md:text-2xl font-black text-black dark:text-white">{achievement.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-black text-black">{achievement.title}</h3>
                   <span className="px-3 py-1.5 md:px-4 md:py-2 bg-yellow-400 text-black border-2 border-black rounded-md text-xs md:text-sm font-bold whitespace-nowrap self-start">
                     {achievement.year}
                   </span>
                 </div>
                 
-                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-4 md:mb-6 leading-relaxed font-medium">{achievement.description}</p>
+                <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6 leading-relaxed font-medium">{achievement.description}</p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                  <div className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-slate-600 rounded-lg border-2 border-black dark:border-gray-500">
+                  <div className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 rounded-lg border-2 border-black">
                     <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
                       <Clock className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
                     </div>
                     <div>
-                      <p className="text-gray-600 dark:text-gray-400 font-bold text-xs md:text-sm">Duration</p>
-                      <p className="text-black dark:text-white font-black text-sm md:text-base">36 Hours Non-Stop</p>
+                      <p className="text-gray-600 font-bold text-xs md:text-sm">Duration</p>
+                      <p className="text-black font-black text-sm md:text-base">36 Hours Non-Stop</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-slate-600 rounded-lg border-2 border-black dark:border-gray-500">
+                  <div className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 rounded-lg border-2 border-black">
                     <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-lg flex items-center justify-center flex-shrink-0">
                       <Zap className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
                     </div>
                     <div>
-                      <p className="text-gray-600 dark:text-gray-400 font-bold text-xs md:text-sm">Skills Demonstrated</p>
-                      <p className="text-black dark:text-white font-black text-sm md:text-base">Rapid Development</p>
+                      <p className="text-gray-600 font-bold text-xs md:text-sm">Skills Demonstrated</p>
+                      <p className="text-black font-black text-sm md:text-base">Rapid Development</p>
                     </div>
                   </div>
                 </div>
@@ -101,3 +101,4 @@ export function AchievementsSection() {
     </section>
   )
 }
+
