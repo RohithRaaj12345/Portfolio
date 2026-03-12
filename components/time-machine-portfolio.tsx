@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Calendar, Code, Briefcase, Star } from "lucide-react"
+import { Calendar, Code, Briefcase, Star } from "lucide-react"
 
 interface TimelineNode {
   year: string
@@ -125,14 +125,6 @@ export function TimeMachinePortfolio() {
 
   const currentData = timelineData[currentYear]
 
-  const navigateYear = (direction: "prev" | "next") => {
-    if (direction === "prev" && currentYear > 0) {
-      setCurrentYear(currentYear - 1)
-    } else if (direction === "next" && currentYear < timelineData.length - 1) {
-      setCurrentYear(currentYear + 1)
-    }
-  }
-
   const jumpToYear = (index: number) => {
     setCurrentYear(index)
   }
@@ -175,7 +167,7 @@ export function TimeMachinePortfolio() {
         >
           {/* Header */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
-            <div className="flex items-start sm:items-center gap-3 sm:gap-6 w-full sm:w-auto">
+            <div className="flex items-start sm:items-center gap-3 sm:gap-6 w-full">
               <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-yellow-400 flex items-center justify-center border-2 border-black flex-shrink-0`}>
                 {currentData.icon}
               </div>
@@ -187,22 +179,6 @@ export function TimeMachinePortfolio() {
                   {currentData.description}
                 </p>
               </div>
-            </div>
-            
-            <div className="flex items-center gap-2 self-end sm:self-auto">
-              <button
-                onClick={() => navigateYear("prev")}
-                disabled={currentYear === 0}
-                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-yellow-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors border-2 border-transparent hover:border-black"
-              >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-              <button
-                onClick={() => navigateYear("next")}
-                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-yellow-400 hover:text-black transition-colors border-2 border-transparent hover:border-black"
-              >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
             </div>
           </div>
 
