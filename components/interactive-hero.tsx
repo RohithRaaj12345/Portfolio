@@ -621,7 +621,7 @@ export function InteractiveHeroSection() {
 
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center overflow-hidden bg-white py-6 sm:py-8 md:min-h-screen"
     >
       {/* Simple clean background */}
       <div className="absolute inset-0 bg-white" />
@@ -629,14 +629,14 @@ export function InteractiveHeroSection() {
       {/* Carrom Area */}
       <div 
         ref={containerRef}
-        className="relative z-10 flex-1 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-12"
+        className="relative z-10 flex items-center justify-center w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-4 md:py-6 lg:py-8 mb-4 sm:mb-6 md:mb-8"
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="w-full max-w-6xl bg-yellow-400 rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 carrom-card relative">
+        <div className="w-full max-w-6xl bg-yellow-400 rounded-2xl shadow-xl p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 carrom-card relative">
           {/* Interactive Mode Indicator */}
           {carromMode && (
             <motion.div
@@ -653,7 +653,7 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-4 md:mb-6"
+              className="mb-1 sm:mb-2 md:mb-3"
             >
               <span 
                 className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-black text-yellow-400 text-xs md:text-sm font-bold rounded-md select-none"
@@ -670,12 +670,12 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black mb-3 md:mb-5"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black mb-1 sm:mb-2 md:mb-3"
             >
               {renderWords('Rohith S', 'headline')}
             </motion.h1>
 
-            <div className="h-12 md:h-16 mb-4 md:mb-6">
+            <div className="h-6 sm:h-8 md:h-10 lg:h-14 mb-2 sm:mb-3 md:mb-4">
               <motion.p
                 key={currentRole}
                 initial={{ opacity: 0, y: 10 }}
@@ -692,7 +692,7 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm sm:text-base md:text-lg text-black max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed font-medium px-2"
+              className="text-sm sm:text-base md:text-lg text-black max-w-3xl mx-auto mb-3 sm:mb-4 md:mb-5 leading-relaxed font-medium px-2"
             >
               {renderWords('Computer Science Engineering student with expertise in Flutter and Android development. Experienced in building mobile applications, cloud integration with AWS, and full-stack web solutions. Passionate about creating technology that solves real-world problems.', 'description')}
             </motion.p>
@@ -701,10 +701,10 @@ export function InteractiveHeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto"
+              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-2xl mx-auto"
             >
               <div 
-                className="p-3 sm:p-4 md:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
+                className="p-2 sm:p-3 md:p-4 lg:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
                 data-carrom="stat1"
                 onMouseDown={(e) => handleMouseDown(e, 'stat1')}
                 onTouchStart={(e) => handleTouchStart(e, 'stat1')}
@@ -714,7 +714,7 @@ export function InteractiveHeroSection() {
                 <p className="text-xs sm:text-sm font-bold">CGPA</p>
               </div>
               <div 
-                className="p-3 sm:p-4 md:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
+                className="p-2 sm:p-3 md:p-4 lg:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
                 data-carrom="stat2"
                 onMouseDown={(e) => handleMouseDown(e, 'stat2')}
                 onTouchStart={(e) => handleTouchStart(e, 'stat2')}
@@ -724,7 +724,7 @@ export function InteractiveHeroSection() {
                 <p className="text-xs sm:text-sm font-bold">Projects</p>
               </div>
               <div 
-                className="p-3 sm:p-4 md:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
+                className="p-2 sm:p-3 md:p-4 lg:p-5 bg-white rounded-lg border-2 border-black hover:bg-black hover:text-yellow-400 transition-all select-none"
                 data-carrom="stat3"
                 onMouseDown={(e) => handleMouseDown(e, 'stat3')}
                 onTouchStart={(e) => handleTouchStart(e, 'stat3')}
@@ -810,7 +810,7 @@ export function InteractiveHeroSection() {
       )}
 
       {/* Buttons */}
-      <div className="relative z-10 w-full pb-8 md:pb-10 lg:pb-12 px-4 sm:px-6">
+      <div className="relative z-10 w-full pt-4 sm:pt-6 md:pt-8 pb-6 sm:pb-8 md:pb-8 lg:pb-10 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
